@@ -1,0 +1,85 @@
+package com.bankingsystem.service;
+
+import com.bankingsystem.model.User;
+import com.bankingsystem.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import java.util.Optional;
+
+@Service
+public class UserService {
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+
+    public User registerUser(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        return userRepository.save(user);
+    }
+
+    public Optional<User> findByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
+
+    public User updateUser(User user) {
+        return userRepository.save(user);
+    }
+
+    public void deleteUser(Long id) {
+        userRepository.deleteById(id);
+    }
+}
+
+package com.bankingsystem.service;
+
+import com.bankingsystem.model.Account;
+import com.bankingsystem.repository.AccountRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class AccountService {
+
+    @Autowired
+    private AccountRepository accountRepository;
+
+    public Account createAccount(Account account) {
+        return accountRepository.save(account);
+    }
+
+    public List<Account> getAllAccounts() {
+        return accountRepository.findAll();
+    }
+
+    public Account getAccountById(Long id) {
+        return accountRepository.findById(id).orElse(null);
+    }
+
+    public void deposit(Long accountId, double amount) {
+        Account account = getAccountById(accountId);
+        if (account != null) {
+            account.setBalance(account.getBalance() + amount);
+            accountRepository.save(account);
+        }
+    }
+
+    public void withdraw(Long accountId, double amount) {
+        Account account = getAccountById(accountId);
+        if (account != null && account.getBalance() >= amount) {
+            account.setBalance(account.getBalance() - amount);
+            accountRepository.save(account);
+        }
+    }
+
+    public void transfer(Long fromAccountId, Long toAccountId, double amount) {
+        withdraw(fromAccountId, amount);
+        deposit(toAccountId, amount);
+    }
+}

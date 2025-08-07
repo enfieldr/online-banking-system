@@ -1,0 +1,116 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+    color: #222;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2e3a59;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+}
+
+.logo {
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: #ffd700;
+}
+
+.hero {
+    text-align: center;
+    padding: 5rem 2rem 3rem 2rem;
+    background: linear-gradient(90deg, #f8ffae 0%, #43c6ac 100%);
+    border-radius: 0 0 40px 40px;
+    box-shadow: 0 4px 24px rgba(67, 198, 172, 0.12);
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #2e3a59;
+    letter-spacing: 1px;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+#getStartedBtn {
+    padding: 0.8rem 2.2rem;
+    font-size: 1.1rem;
+    background: #2e3a59;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.15);
+    transition: background 0.2s;
+}
+
+#getStartedBtn:hover {
+    background: #ffd700;
+    color: #2e3a59;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 3rem 0;
+    flex-wrap: wrap;
+}
+
+.feature-card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 2px 12px rgba(44, 62, 80, 0.08);
+    padding: 2rem;
+    width: 300px;
+    text-align: center;
+    margin-bottom: 1rem;
+    transition: transform 0.2s;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 6px 24px rgba(44, 62, 80, 0.15);
+}
+
+.feature-card h2 {
+    color: #43c6ac;
+    margin-bottom: 0.7rem;
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem 0;
+    background: #2e3a59;
+    color: #fff;
+    border-radius: 40px 40px 0 0;
+    margin-top: 2rem;
+    font-size: 1rem;
+}
