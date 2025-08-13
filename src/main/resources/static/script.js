@@ -1,50 +1,63 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const btn = document.getElementById('getStartedBtn');
-    btn.addEventListener('click', function() {
-        showModal('Welcome to BankX! Please register or login to continue.');
+// =============================
+// main.js - BankX Interactivity
+// =============================
+
+// ======= Mobile Menu Toggle =======
+const navLinks = document.querySelector('.nav-links');
+const menuToggle = document.createElement('button');
+menuToggle.textContent = "☰";
+menuToggle.classList.add('menu-toggle');
+document.querySelector('.navbar .container').prepend(menuToggle);
+
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('nav-open');
+});
+
+// ======= Smooth Scroll =======
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            window.scrollTo({
+                top: target.offsetTop - 60,
+                behavior: 'smooth'
+            });
+        }
     });
 });
 
-function showModal(message) {
-    let modal = document.createElement('div');
-    modal.className = 'custom-modal';
-    modal.innerHTML = `
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <p>${message}</p>
-        </div>
-    `;
-    document.body.appendChild(modal);
+// ======= Hero "Get Started" Button =======
+document.getElementById('getStartedBtn')?.addEventListener('click', () => {
+    // Change this to your registration page or login
+    window.location.href = "/register";
+});
 
-    document.querySelector('.close-btn').onclick = function() {
-        modal.remove();
-    };
+// ======= Scroll Animation for Feature Cards =======
+const featureCards = document.querySelectorAll('.feature-card');
+const services = document.querySelectorAll('.services-grid article');
+
+function animateOnScroll() {
+    const triggerBottom = window.innerHeight * 0.85;
+
+    [...featureCards, ...services].forEach(card => {
+        const cardTop = card.getBoundingClientRect().top;
+        if (cardTop < triggerBottom) {
+            card.classList.add('show');
+        } else {
+            card.classList.remove('show');
+        }
+    });
 }
 
-// Add modal styles to your CSS file:
-/*
-.custom-modal {
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(44,62,80,0.25);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
+window.addEventListener('scroll', animateOnScroll);
+animateOnScroll();
+
+// ======= AI Chatbot Placeholder =======
+function openChatbot() {
+    alert("AI Chatbot feature coming soon!");
 }
-.custom-modal .modal-content {
-    background: #fff;
-    padding: 2rem 2.5rem;
-    border-radius: 18px;
-    box-shadow: 0 2px 16px rgba(44,62,80,0.18);
-    text-align: center;
-    position: relative;
-}
-.custom-modal .close-btn {
-    position: absolute;
-    top: 12px; right: 18px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #2e3a59;
-}
-*/
+// Example trigger: document.querySelector('#chatbotBtn').addEventListener('click', openChatbot);
+
+// ======= Dynamic Year in Footer =======
+document.querySelector('footer p').innerHTML = `&copy; ${new Date().getFullYear()} BankX. All rights reserved.`;
