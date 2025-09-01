@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BankJ – Online Banking System</title>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/css/styles.css" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" href="/css/styles.css" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <!-- ================= NAVIGATION ================= -->
+     <script src="/js/main.js" th:src="@{/js/main.js}"></script>
+    <header>
+        <nav class="navbar">
+            <div class="container nav-container">
+                <div class="logo">
+                    <a th:href="@{/}">Bank<span>J</span></a>
+                </div>
+                <ul class="nav-links">
+                    <li><a th:href="@{/}">Home</a></li>
+                    <li><a th:href="@{/accounts}">Accounts</a></li>
+                    <li><a th:href="@{/transactions}">Transactions</a></li>
+                    <li><a th:href="@{/services}">Services</a></li>
+                    <li><a th:href="@{/login}" class="btn btn-primary">Login</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Welcome to BankJ</h1>
+            <p>Secure. Fast. Reliable. Your money, your way.</p>
+            <a th:href="@{/register}" class="btn btn-accent" id="getStartedBtn">Get Started</a>
+        </div>
+    </section>
+
+    <!-- ================= FEATURES ================= -->
+    <section class="features">
+        <div class="container feature-grid">
+            <article class="feature-card">
+                <h2>Easy Account Management</h2>
+                <p>Open, view, and manage your accounts effortlessly with a few clicks.</p>
+            </article>
+            <article class="feature-card">
+                <h2>Instant Transfers</h2>
+                <p>Send money instantly and securely to anyone, anywhere.</p>
+            </article>
+            <article class="feature-card">
+                <h2>24/7 Support</h2>
+                <p>Our customer service team is always here to help you, anytime.</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- ================= ADDITIONAL SECTIONS ================= -->
+    <section class="services">
+        <div class="container services-grid">
+            <article>
+                <h2>Loan Services</h2>
+                <p>Apply for personal, home, or business loans with minimal paperwork.</p>
+            </article>
+            <article>
+                <h2>AI Chatbot Banking</h2>
+                <p>Manage your banking with our AI-powered virtual assistant.</p>
+            </article>
+            <article>
+                <h2>Fraud Detection</h2>
+                <p>Advanced AI algorithms monitor transactions for suspicious activity.</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2025 BankX. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a th:href="@{/privacy}">Privacy Policy</a></li>
+                <li><a th:href="@{/terms}">Terms of Service</a></li>
+                <li><a th:href="@{/contact}">Contact Us</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/js/main.js" th:src="@{/js/main.js}"></script>
+</body>
+</html>

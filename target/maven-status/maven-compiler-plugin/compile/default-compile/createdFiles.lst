@@ -1,0 +1,4 @@
+com/bankingsystem/dto/TransactionDto.class
+com/bankingsystem/dto/UserRegistrationDto.class
+com/bankingsystem/dto/AccountDto.class
+com/bankingsystem/dto/LoginDto.class
