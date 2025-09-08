@@ -1,4 +1,6 @@
 com/bankingsystem/dto/TransactionDto.class
+com/bankingsystem/OnlineBankingSystemApplication.class
+com/bankingsystem/Application.class
 com/bankingsystem/dto/UserRegistrationDto.class
 com/bankingsystem/dto/AccountDto.class
 com/bankingsystem/dto/LoginDto.class
